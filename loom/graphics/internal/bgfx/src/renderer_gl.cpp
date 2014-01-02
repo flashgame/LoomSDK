@@ -3623,6 +3623,8 @@ namespace bgfx
             }
         }
 
+        glFlush();        
+
         int64_t now = bx::getHPCounter();
         elapsed += now;
 
