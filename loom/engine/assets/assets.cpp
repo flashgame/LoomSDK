@@ -22,6 +22,10 @@
 #include <assert.h>
 #include <string.h>
 
+#include "loom/common/utils/utTypes.h"
+#include "loom/common/utils/utString.h"
+#include "loom/common/utils/fourcc.h"
+
 #include "loom/common/core/log.h"
 #include "loom/common/core/assert.h"
 #include "loom/common/core/allocator.h"
@@ -30,10 +34,7 @@
 #include "loom/common/platform/platformTime.h"
 #include "loom/common/platform/platformIO.h"
 #include "loom/common/platform/platformFile.h"
-#include "loom/common/platform/platformNetwork.h"
-#include "loom/common/utils/utTypes.h"
-#include "loom/common/utils/utString.h"
-#include "loom/common/utils/fourcc.h"
+#include "loom/engine/services/platformNetwork.h"
 
 #include "loom/engine/assets/assets.h"
 #include "loom/engine/assets/assetProtocol.h"

@@ -20,9 +20,9 @@
 
 #include "loom/common/platform/platform.h"
 #include "loom/common/platform/platformThread.h"
-#include "loom/common/platform/platformNetwork.h"
 #include "loom/common/core/log.h"
 #include "loom/common/core/assert.h"
+#include "loom/engine/services/platformNetwork.h"
 
 #if LOOM_PLATFORM == LOOM_PLATFORM_WIN32
 #include <WinSock2.h>

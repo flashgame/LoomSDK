@@ -41,7 +41,7 @@ THE SOFTWARE.
 #import "keypad_dispatcher/CCKeypadDispatcher.h"
 #import "text_input_node/CCIMEDispatcher.h"
 #import "scrollwheel_dispatcher/CCScrollWheelDispatcher.h"
-#import "loom/common/platform/platformKeyCodes.h"
+#import "loom/engine/services/platformKeyCodes.h"
 
 #include "loom/graphics/gfxGraphics.h"
 

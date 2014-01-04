@@ -26,7 +26,6 @@
 #include "loom/common/platform/platformThread.h"
 
 #include "loom/common/platform/platformThread.h"
-#include "loom/common/platform/platformDisplay.h"
 #include "loom/common/platform/platformTime.h"
 #include "loom/common/platform/platformIO.h"
 #include "loom/script/loomscript.h"

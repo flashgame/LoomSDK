@@ -1,6 +1,6 @@
 package loom2d.display 
 {
-	import loom.css.StyleSheet;
+	import loom2d.css.StyleSheet;
 	
 	import loom2d.events.Event;
 	import loom2d.events.EventDispatcher;

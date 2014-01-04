@@ -19,7 +19,7 @@
  */
 
 #include "loom/common/platform/platform.h"
-#include "loom/common/platform/platformStore.h"
+#include "loom/engine/services/platformStore.h"
 
 #if LOOM_PLATFORM != LOOM_PLATFORM_ANDROID && LOOM_PLATFORM != LOOM_PLATFORM_IOS
 

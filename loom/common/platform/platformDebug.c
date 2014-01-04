@@ -23,47 +23,23 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+#include "loom/common/platform/platform.h"
+
 #if LOOM_PLATFORM == LOOM_PLATFORM_LINUX
 #include <stdarg.h>
 #endif
 
-#include "loom/common/platform/platformDisplay.h"
 #include "loom/common/platform/platformThread.h"
 #include "loom/common/platform/platformTime.h" // Needed to generate fake accelerometer data
-#include "loom/common/platform/platform.h"
+
 #include "loom/common/core/performance.h"
 #include "loom/common/core/log.h"
 
-
 lmDefineLogGroup(gPlatformErrorLogGroup, "error", 1, LoomLogDebug);
-
 
 #if LOOM_PLATFORM == LOOM_PLATFORM_WIN32
 
 #include <windows.h>
-
-// The accelerometer is disabled by default in order to conserve battery on mobile devices.
-static unsigned char accelerometerEnabled = 0;
-// If 0, then accelerometer reports being held straight down.
-// If 1, then cycles through fake spinning data.
-static unsigned char accelerometerDebugMode = 0;
-
-void platform_enableAccelerometer(unsigned char enabled)
-{
-    accelerometerEnabled = enabled;
-}
-
-
-void platform_setAccelerometerDebugMode(unsigned char enabled)
-{
-    accelerometerDebugMode = enabled;
-}
-
-
-void accelerometerUpdate()
-{
-}
-
 
 int platform_debugOut(const char *out, ...)
 {
@@ -178,9 +154,6 @@ int platform_error(const char *out, ...)
 
 #elif LOOM_PLATFORM == LOOM_PLATFORM_ANDROID
 
-#include <GLES2/gl2.h>
-
-
 #include <android/log.h>
 #include <jni.h>
 
@@ -227,52 +200,6 @@ int platform_error(const char *out, ...)
 }
 
 
-static JavaVM  *JVM;
-static jobject jActivity = 0; // This needs to be a global (weak) reference
-                              //  in order to be valid across JNI calls
-static unsigned char accelerometerEnabled   = 0;
-static unsigned char accelerometerDebugMode = 0;
-
-
-JNIEXPORT void JNICALL
-Java_co_theengine_loom_android_LoomActivity_loomSensorInit(JNIEnv  *env,
-                                                           jobject thiz)
-{
-    // Store our Java environment and activity object
-    //  so that we can make Java calls in the future.
-    // TODO: Ensure that this initialization is indeed called again
-    //  if the activity is ever recreated (such as on a suspend).
-
-    // Store these as global references, because local references
-    //  may not be stored and re-used outside of this JNI call.
-    jActivity = (*env)->NewWeakGlobalRef(env, thiz);
-
-    // TODO: Destroy this with a DeleteGlobalWeakRef
-}
-
-
-void platform_enableAccelerometer(unsigned char enabled)
-{
-    accelerometerEnabled = enabled;
-
-    JNIEnv *env;
-    if ((*JVM)->GetEnv(JVM, (void **)&env, JNI_VERSION_1_4) != JNI_OK)
-    {
-        platform_error("Android failed to get the environment using GetEnv()");
-        return;
-    }
-    jclass    cls = (*env)->GetObjectClass(env, jActivity);
-    jmethodID mid = (*env)->GetMethodID(env, cls, "enableAccelerometer", "(I)V");
-    assert(mid);
-
-    (*env)->CallVoidMethod(env, jActivity, mid, (int)enabled);
-}
-
-
-void platform_setAccelerometerDebugMode(unsigned char enabled)
-{
-    accelerometerDebugMode = enabled;
-}
 
 
 #else // Unsupported platforms use stubbed functions
@@ -289,7 +216,6 @@ int platform_debugOut(const char *out, ...)
 
     return 0;
 }
-
 
 int platform_error(const char *out, ...)
 {
@@ -314,16 +240,3 @@ int platform_error(const char *out, ...)
 }
 #endif
 
-#if LOOM_PLATFORM == LOOM_PLATFORM_LINUX || LOOM_PLATFORM == LOOM_PLATFORM_WIN32 || LOOM_PLATFORM == LOOM_PLATFORM_OSX
-
-display_profile display_getProfile()
-{
-    return PROFILE_DESKTOP;
-}
-
-
-float display_getDPI()
-{
-    return 200;
-}
-#endif

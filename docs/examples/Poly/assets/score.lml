@@ -1,5 +1,5 @@
 <poly.views.ScoreView>
-    <loom.css.StyleSheet source="assets/main.css"/>
+    <loom2d.css.StyleSheet source="assets/main.css"/>
 
     <loom2d.ui.TextureAtlasSprite id="bg" atlasName="PolyUI" textureName="black.png"/>
 

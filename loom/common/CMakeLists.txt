@@ -10,33 +10,14 @@ include_directories( ${LOOM_INCLUDE_FOLDERS} )
 file (GLOB CPP_FILES xml/*.cpp utils/*.cpp core/*.cpp core/*.c platform/*.cpp platform/*.c)
 file (GLOB H_FILES utils/*.h xml/*.h platform/*.h )
 
-if (APPLE)
-    if (LOOM_BUILD_IOS EQUAL 1)
-        set (CPP_FILES ${CPP_FILES} 
-            platform/platformDisplayIOS.mm 
-            platform/platformFileIOS.mm
-            platform/platformHTTPOSX.mm 
-            platform/platformWebViewIOS.mm 
-            platform/platformAdMobIOS.mm
-            platform/platformStoreiOS.mm
-            platform/platformVideoiOS.mm
-            platform/platformMobileiOS.mm
-            platform/EBPurchase.m
-        )
-    else()
-        set (CPP_FILES ${CPP_FILES} 
-            platform/platformFileIOS.mm
-            platform/platformWebViewOSX.mm 
-            platform/platformHTTPOSX.mm
-        )
-    endif()
-endif(APPLE)
-
 set (SOURCE_FILES ${CPP_FILES} ${H_FILES})
+
+if (APPLE)
+    set ( SOURCE_FILES ${SOURCE_FILES} platform/platformFileIOS.mm )
+endif(APPLE)
 
 # Define target & libraries to link
 add_library (${TARGET_NAME} STATIC ${SOURCE_FILES})
-
 
 if (ANDROID)
     target_link_libraries(${TARGET_NAME} -lz LoomVendor )

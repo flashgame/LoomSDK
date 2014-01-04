@@ -18,23 +18,35 @@
  * ===========================================================================
  */
 
+#include <assert.h>
+#include <math.h>
+#include <stdlib.h>
+#include <stdio.h>
+
 #include "loom/common/platform/platform.h"
-#include "loom/common/platform/platformVideo.h"
 
-#if LOOM_PLATFORM != LOOM_PLATFORM_ANDROID && LOOM_PLATFORM != LOOM_PLATFORM_IOS
+#if LOOM_PLATFORM == LOOM_PLATFORM_LINUX
+#include <stdarg.h>
+#endif
 
-///The NULL video player
-int platform_videoSupported()
+#include "loom/common/platform/platformThread.h"
+#include "loom/common/platform/platformTime.h" // Needed to generate fake accelerometer data
+
+#include "loom/common/core/performance.h"
+#include "loom/common/core/log.h"
+
+#include "loom/engine/services/platformDisplay.h"
+
+#if LOOM_PLATFORM == LOOM_PLATFORM_LINUX || LOOM_PLATFORM == LOOM_PLATFORM_WIN32 || LOOM_PLATFORM == LOOM_PLATFORM_OSX
+
+display_profile display_getProfile()
 {
-    return 0;
+    return PROFILE_DESKTOP;
 }
 
-void platform_videoInitialize(VideoEventCallback eventCallback)
-{ 
-}
 
-void platform_videoPlayFullscreen(const char *video, int scaleMode, int controlMode, unsigned int bgColor)
+float display_getDPI()
 {
+    return 200;
 }
-
 #endif

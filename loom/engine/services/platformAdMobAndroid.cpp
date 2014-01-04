@@ -18,8 +18,9 @@
  * ===========================================================================
  */
 
+#include "loom/common/platform/platform.h"
 #include "platformAdMob.h"
-#include "platform.h"
+
 
 #if LOOM_PLATFORM == LOOM_PLATFORM_ANDROID
 

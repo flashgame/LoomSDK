@@ -168,7 +168,7 @@ utHashTable<utPointerHashKey, Gamepad *> Gamepad::openGamePads;
 
 static int _registerSystemGamepad(lua_State *L)
 {
-    beginPackage(L, "system.platform")
+    beginPackage(L, "loom.platform")
 
        .beginClass<Gamepad>("Gamepad")
        .addVar("numButtons", &Gamepad::numButtons)

@@ -22,7 +22,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <cassert>
-#include "platform.h"
+#include "loom/common/platform/platform.h"
 
 #ifndef LOOMSCRIPT_STANDALONE
 #if LOOM_PLATFORM == LOOM_PLATFORM_WIN32 || LOOM_PLATFORM == LOOM_PLATFORM_LINUX

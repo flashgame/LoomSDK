@@ -22,7 +22,7 @@
 #ifndef _ASSETS_ASSETPROTOCOL_H_
 #define _ASSETS_ASSETPROTOCOL_H_
 
-#include "loom/common/platform/platformNetwork.h"
+#include "loom/engine/services/platformNetwork.h"
 #include "loom/common/utils/utString.h"
 
 // Helper class to handle reading/writing asset protocol data.

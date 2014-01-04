@@ -21,10 +21,7 @@
 #include <time.h>
 #include "loom/script/loomscript.h"
 #include "loom/common/platform/platform.h"
-#include "loom/common/platform/platformDisplay.h"
 #include "loom/common/platform/platformTime.h"
-
-static float _forceDPI = -1.f;
 
 class Platform {
 public:
@@ -46,30 +43,6 @@ public:
         return LOOM_PLATFORM;
     }
 
-    static int getProfile()
-    {
-        return display_getProfile();
-    }
-
-    static float getDPI()
-    {
-        if (_forceDPI != -1.f)
-        {
-            return _forceDPI;
-        }
-
-        return display_getDPI();
-    }
-
-    static void forceDPI(float value)
-    {
-        _forceDPI = value;
-    }
-
-    static bool isForcingDPI()
-    {
-        return _forceDPI != -1.f;
-    }
 };
 
 static int registerSystemPlatform(lua_State *L)
@@ -81,11 +54,6 @@ static int registerSystemPlatform(lua_State *L)
        .addStaticLuaFunction("getTime", &Platform::getTime)
        .addStaticMethod("getEpochTime", &Platform::getEpochTime)
        .addStaticMethod("getPlatform", &Platform::getPlatform)
-       .addStaticMethod("getProfile", &Platform::getProfile)
-       .addStaticMethod("getDPI", &Platform::getDPI)
-       .addStaticMethod("forceDPI", &Platform::forceDPI)
-       .addStaticMethod("isForcingDPI", &Platform::isForcingDPI)
-
        .endClass()
 
        .endPackage();

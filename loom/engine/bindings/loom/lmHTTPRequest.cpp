@@ -18,10 +18,11 @@
  * ===========================================================================
  */
 
+#include "loom/common/utils/utByteArray.h"
 #include "loom/script/loomscript.h"
 #include "loom/script/native/lsNativeDelegate.h"
-#include "loom/common/platform/platformHttp.h"
-#include "loom/common/utils/utByteArray.h"
+#include "loom/engine/services/platformHttp.h"
+
 
 using namespace LS;
 

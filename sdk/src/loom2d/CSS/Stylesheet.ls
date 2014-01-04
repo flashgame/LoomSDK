@@ -18,12 +18,14 @@ limitations under the License.
 ===========================================================================
 */
 
-package loom.css 
+package loom2d.css 
 {
     import system.platform.Platform;
-    import system.platform.PlatformType;
-    import system.platform.DisplayProfile;
+    import system.platform.PlatformType;    
     import loom.LoomTextAsset;
+
+    import loom2d.display.DisplayProfile;
+    import loom2d.display.Cocos2D;
 
     delegate StyleUpdatedDelegate(styleSheet:StyleSheet);
 
@@ -73,7 +75,7 @@ package loom.css
                     break;
             }
 
-            var profile = Platform.getProfile();
+            var profile = Cocos2D.getProfile();
             switch(profile) {
                 case DisplayProfile.DESKTOP:
                     defineAttribute("desktop", true);

@@ -193,7 +193,7 @@ void lsr_loomscript_open(int argc, const char **argv)
 
     installPackageSystem();
 
-    loom_net_initialize();
+    //loom_net_initialize();
 
     // Initialize script hooks.
     LS::LSLogInitialize((LS::FunctionLog)loom_log, (void *)&scriptLogGroup, LoomLogInfo, LoomLogWarn, LoomLogError);

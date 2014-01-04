@@ -19,7 +19,7 @@
  */
 
 #include "platformAdMob.h"
-#include "platform.h"
+#include "loom/common/platform/platform.h"
 
 #if LOOM_PLATFORM != LOOM_PLATFORM_IOS && LOOM_PLATFORM != LOOM_PLATFORM_ANDROID
 

@@ -19,8 +19,9 @@
  */
 
 #include "seatest.h"
-#include "loom/common/platform/platformNetwork.h"
 #include "loom/common/platform/platformThread.h"
+#include "loom/engine/services/platformNetwork.h"
+
 
 SEATEST_FIXTURE(platformNetwork)
 {

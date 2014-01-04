@@ -33,7 +33,7 @@ set (ENGINE_SRC
     bindings/loom/lmMobile.cpp
     bindings/loom/lmPackageLoom.cpp
     bindings/loom/gameframework/lmPropertyManager.cpp
-    bindings/platform/lmGamepad.cpp
+    bindings/loom/platform/lmGamepad.cpp
 
     bindings/cocos2d/lmCocos2D.cpp
     
@@ -217,7 +217,7 @@ set (ENGINE_SRC
 )
 endif()
 
-file (GLOB MISC_FILES config/*.cpp assets/*.c assets/*.cpp)
+file (GLOB MISC_FILES config/*.cpp assets/*.c assets/*.cpp services/*.cpp services/*.c)
 
 set (ENGINE_SRC ${ENGINE_SRC} ${MISC_FILES} input/platformGamePad.c)
 
@@ -234,6 +234,27 @@ elseif(APPLE)
 else()
         set (ENGINE_SRC ${ENGINE_SRC} input/platformGamePadNull.c)
 endif()
+
+if (APPLE)
+    if (LOOM_BUILD_IOS EQUAL 1)
+        set (ENGINE_SRC ${ENGINE_SRC}
+            services/platformDisplayIOS.mm
+            services/platformHTTPOSX.mm
+            services/platformWebViewIOS.mm
+            services/platformAdMobIOS.mm
+            services/platformStoreiOS.mm
+            services/platformVideoiOS.mm
+            services/platformMobileiOS.mm
+            services/EBPurchase.m
+        )
+    else()
+        set (ENGINE_SRC ${ENGINE_SRC}
+            services/platformWebViewOSX.mm
+            services/platformHTTPOSX.mm
+        )
+    endif()
+endif(APPLE)
+
 
 include_directories(vendor/zlib/include)
 

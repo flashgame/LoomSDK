@@ -18,10 +18,20 @@ limitations under the License.
 ===========================================================================
 */
 
-package loom.css
+package loom2d.css
 {
-    interface IStyleApplicator
+    interface IStyle
     {
-        function applyStyle(target:Object, style:IStyle):void;
-    } 
+        function get properties():Dictionary.<String,String>;
+
+        function set styleName(value:String):void;
+
+        function get styleName():String;
+
+        function merge(object:IStyle):void;
+
+        function toString():String;
+
+        function clone():IStyle;
+    }
 }

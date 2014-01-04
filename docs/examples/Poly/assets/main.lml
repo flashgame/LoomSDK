@@ -1,6 +1,6 @@
 <poly.views.MainMenuView>
 
-    <loom.css.StyleSheet source="assets/main.css"/>
+    <loom2d.css.StyleSheet source="assets/main.css"/>
 
     <loom2d.ui.TextureAtlasSprite id="logo" styleName="logo" atlasName="PolyUI" textureName="logo.png"/>
 

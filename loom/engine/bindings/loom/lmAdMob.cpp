@@ -20,7 +20,7 @@
 
 #include "loom/script/loomscript.h"
 #include "loom/script/native/lsNativeDelegate.h"
-#include "loom/common/platform/platformAdMob.h"
+#include "loom/engine/services/platformAdMob.h"
 
 using namespace LS;
 

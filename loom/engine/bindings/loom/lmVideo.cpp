@@ -21,7 +21,7 @@
 #include "loom/common/core/log.h"
 #include "loom/script/loomscript.h"
 #include "loom/script/native/lsNativeDelegate.h"
-#include "loom/common/platform/platformVideo.h"
+#include "loom/engine/services/platformVideo.h"
 
 using namespace LS;
 

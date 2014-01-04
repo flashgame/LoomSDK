@@ -19,7 +19,7 @@
  */
 
 #include "loom/common/platform/platformTime.h"
-#include "loom/common/platform/platformHttp.h"
+#include "loom/engine/services/platformHttp.h"
 #include "loom/common/core/performance.h"
 #include "loom/engine/tasks/tasks.h"
 #include "loom/engine/assets/assets.h"

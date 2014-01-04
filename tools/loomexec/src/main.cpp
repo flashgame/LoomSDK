@@ -24,12 +24,11 @@
 #include "loom/common/core/performance.h"
 #include "loom/common/platform/platform.h"
 #include "loom/common/platform/platformTime.h"
-#include "loom/common/platform/platformNetwork.h"
 #include "loom/script/runtime/lsLuaState.h"
 #include "loom/script/native/lsNativeDelegate.h"
 #include "loom/script/common/lsLog.h"
 #include "loom/script/common/lsFile.h"
-
+#include "loom/engine/services/platformNetwork.h"
 using namespace LS;
 
 void installPackageSystem();
@@ -143,9 +142,6 @@ static void initialize(int argc, const char **argv)
     stringtable_initialize();
 
     installPackageSystem();
-
-    //lmLog(applicationLogGroup, "   o network");
-    loom_net_initialize();
 
     // Initialize script hooks.
     LS::LSLogInitialize((LS::FunctionLog)loom_log, (void *)&scriptLogGroup, LoomLogInfo, LoomLogWarn, LoomLogError);

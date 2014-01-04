@@ -22,7 +22,7 @@
 #include "loom/common/core/assert.h"
 #include "loom/script/loomscript.h"
 #include "loom/script/runtime/lsRuntime.h"
-#include "loom/common/platform/platformMobile.h"
+#include "loom/engine/services/platformMobile.h"
 
 using namespace LS;
 

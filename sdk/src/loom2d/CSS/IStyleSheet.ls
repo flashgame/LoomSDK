@@ -18,20 +18,28 @@ limitations under the License.
 ===========================================================================
 */
 
-package loom.css
+package loom2d.css
 {
-    interface IStyle
+    public interface IStyleSheet
     {
-        function get properties():Dictionary.<String,String>;
+        function get name():String;
 
-        function set styleName(value:String):void;
+        function set name(value:String):void;
 
-        function get styleName():String;
+        function parseCSS(cssText:String):IStyleSheet;
 
-        function merge(object:IStyle):void;
+        function clear():void;
+
+        function newStyle(name:String, style:IStyle):void;
+
+        function getStyle(styleName:String):IStyle;
+
+        function hasStyle(name:String):Boolean;
+
+        function relatedStyles(name:String):Vector.<String>;
 
         function toString():String;
 
-        function clone():IStyle;
+        function styleLookup(styleName:String, getRelated:Boolean = true):IStyle;
     }
 }

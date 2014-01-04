@@ -18,7 +18,7 @@ limitations under the License.
 ===========================================================================
 */
 
-package system.platform {
+package loom.platform {
 
     /**
      * Delegate for receiving button events.

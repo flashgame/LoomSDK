@@ -18,7 +18,7 @@ limitations under the License.
 ===========================================================================
 */
 
-package loom.css 
+package loom2d.css 
 {
     /*
         Class: Style

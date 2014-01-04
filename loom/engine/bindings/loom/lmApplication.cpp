@@ -33,15 +33,15 @@ using namespace LS;
 #include "loom/common/core/log.h"
 #include "loom/engine/assets/assetsScript.h"
 #include "loom/engine/tasks/tasks.h"
-#include "loom/common/platform/platformNetwork.h"
-#include "loom/common/platform/platformWebView.h"
+#include "loom/engine/services/platformNetwork.h"
+#include "loom/engine/services/platformWebView.h"
 
 #include "loom/script/common/lsLog.h"
 #include "loom/script/common/lsFile.h"
 
 #include "loom/common/platform/platform.h"
-#include "loom/common/platform/platformHttp.h"
-#include "loom/common/platform/platformAdMob.h"
+#include "loom/engine/services/platformHttp.h"
+#include "loom/engine/services/platformAdMob.h"
 
 #include "loom/engine/config/applicationConfig.h"
 

@@ -43,8 +43,12 @@
 #include "support/CCPointExtension.h"
 #include "text_input_node/CCIMEDispatcher.h"
 
+#include "loom/engine/services/platformDisplay.h"
+
 
 extern cocos2d::CCLayer *getRootLayer();
+
+static float _forceDPI = -1.f;
 
 // script binding interface to CCLoomCocos2D
 class LoomCocos2d {
@@ -153,6 +157,33 @@ public:
 
         return scene;
     }
+
+
+    static int getProfile()
+    {
+        return display_getProfile();
+    }
+
+    static float getDPI()
+    {
+        if (_forceDPI != -1.f)
+        {
+            return _forceDPI;
+        }
+
+        return display_getDPI();
+    }
+
+    static void forceDPI(float value)
+    {
+        _forceDPI = value;
+    }
+
+    static bool isForcingDPI()
+    {
+        return _forceDPI != -1.f;
+    }
+
 };
 
 NativeDelegate LoomCocos2d::_DisplayStatsChangedDelegate;
@@ -187,6 +218,12 @@ static int registerCocos2D(lua_State *L)
        .addStaticMethod("shutdown", &LoomCocos2d::shutdown)
        .addStaticMethod("addLayer", &LoomCocos2d::addLayer)
        .addStaticMethod("removeLayer", &LoomCocos2d::removeLayer)
+
+       .addStaticMethod("getProfile", &LoomCocos2d::getProfile)
+       .addStaticMethod("getDPI", &LoomCocos2d::getDPI)
+       .addStaticMethod("forceDPI", &LoomCocos2d::forceDPI)
+       .addStaticMethod("isForcingDPI", &LoomCocos2d::isForcingDPI)
+
        .endClass()
 
        .endPackage();

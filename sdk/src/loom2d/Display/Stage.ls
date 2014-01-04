@@ -10,10 +10,7 @@
 
 package loom2d.display
 {    
-    
-    import loom2d.display.Cocos2D;
-    import loom2d.display.CCLayer;
-    
+            
     import loom2d.events.EnterFrameEvent;
     import loom2d.events.ResizeEvent;
     import loom2d.events.Event;
@@ -45,6 +42,15 @@ package loom2d.display
         LETTERBOX,
         FILL
     }
+
+    public enum DisplayProfile 
+    {
+        DESKTOP,
+        SMALL,
+        NORMAL,
+        LARGE
+    }
+
 
     /** A Stage represents the root of the display tree.  
      *  Only objects that are direct or indirect children of the stage will be rendered.
@@ -444,6 +450,28 @@ package loom2d.display
         private static native function setDisplayWidth(width:int);
         private static native function setDisplayHeight(height:int); 
         private static native function cleanup();
+
+
+        /*!
+        Get the device category on which we are currently running. This is the size
+        of the screen, not pixel density - see getDPI() for that.
+
+        @see DisplayProfile
+        */
+        public static native function getProfile():DisplayProfile;
+
+        /*!
+        Return a best guess for the DPI of the current display.
+        */
+        public native static function getDPI():Number;
+
+        /*!
+        Override the DPI reported by getDPI; this persists across restarts.
+        */
+        public native static function forceDPI(value:Number):void;
+
+        public native static function isForcingDPI():Boolean;
+
 
         private static function setDisplayInfo(width:int, height:int, caption:String) 
         {

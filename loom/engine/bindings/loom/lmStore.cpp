@@ -21,7 +21,7 @@
 #include "loom/common/core/log.h"
 #include "loom/script/loomscript.h"
 #include "loom/script/native/lsNativeDelegate.h"
-#include "loom/common/platform/platformStore.h"
+#include "loom/engine/services/platformStore.h"
 
 using namespace LS;
 

@@ -20,7 +20,7 @@
 
 #include <stdio.h>
 
-#include "loom/common/platform/platformNetwork.h"
+
 #include "loom/common/platform/platformIO.h"
 #include "loom/common/platform/platformFile.h"
 #include "loom/common/platform/platformThread.h"
@@ -34,6 +34,8 @@
 #include "loom/common/utils/utString.h"
 
 #include "loom/engine/assets/assetProtocol.h"
+
+#include "loom/engine/services/platformNetwork.h"
 
 // For realpath
 #if LOOM_PLATFORM_IS_APPLE == 1 || LOOM_PLATFORM == LOOM_PLATFORM_LINUX

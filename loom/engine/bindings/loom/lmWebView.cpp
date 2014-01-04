@@ -20,7 +20,7 @@
 
 #include "loom/script/loomscript.h"
 #include "loom/script/native/lsNativeDelegate.h"
-#include "loom/common/platform/platformWebView.h"
+#include "loom/engine/services/platformWebView.h"
 
 using namespace LS;
 
