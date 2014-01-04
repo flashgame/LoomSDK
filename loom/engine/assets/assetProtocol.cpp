@@ -20,7 +20,7 @@
 
 
 #include <string.h>
-#include "loom/common/assets/assetProtocol.h"
+#include "loom/engine/assets/assetProtocol.h"
 #include "loom/common/core/allocator.h"
 #include "loom/common/core/log.h"
 #include "loom/common/core/assert.h"

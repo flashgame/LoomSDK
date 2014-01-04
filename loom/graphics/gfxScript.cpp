@@ -33,8 +33,8 @@
 #include "loom/vendor/stb/stb_image.h"
 
 #include "loom/common/core/allocator.h"
-#include "loom/common/assets/assets.h"
-#include "loom/common/assets/assetsImage.h"
+#include "loom/engine/assets/assets.h"
+#include "loom/engine/assets/assetsImage.h"
 
 lmDeclareLogGroup(gGFXTextureLogGroup);
 loom_allocator_t *gRescalerAllocator = NULL;

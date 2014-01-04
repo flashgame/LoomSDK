@@ -22,10 +22,10 @@
 #include "loom/common/platform/platformHttp.h"
 #include "loom/common/core/performance.h"
 #include "loom/engine/tasks/tasks.h"
-#include "loom/common/assets/assets.h"
+#include "loom/engine/assets/assets.h"
 #include "loom/script/native/lsNativeDelegate.h"
 #include "lmApplication.h"
-#include "loom/common/config/applicationConfig.h"
+#include "loom/engine/config/applicationConfig.h"
 
 static int gLastTickTime;
 

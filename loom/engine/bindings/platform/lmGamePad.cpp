@@ -20,7 +20,7 @@
 
 #include <math.h>
 #include "loom/script/loomscript.h"
-#include "loom/common/input/platformGamePad.h"
+#include "loom/engine/input/platformGamePad.h"
 
 using namespace LS;
 

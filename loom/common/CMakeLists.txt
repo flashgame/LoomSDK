@@ -7,8 +7,8 @@ set (TARGET_NAME LoomCommon)
 include_directories( ${LOOM_INCLUDE_FOLDERS} )
 
 # Define source files
-file (GLOB CPP_FILES xml/*.cpp utils/*.cpp core/*.cpp core/*.c platform/*.cpp platform/*.c config/*.cpp)
-file (GLOB H_FILES utils/*.h xml/*.h platform/*.h assets/*.c assets/*.cpp)
+file (GLOB CPP_FILES xml/*.cpp utils/*.cpp core/*.cpp core/*.c platform/*.cpp platform/*.c)
+file (GLOB H_FILES utils/*.h xml/*.h platform/*.h )
 
 if (APPLE)
     if (LOOM_BUILD_IOS EQUAL 1)
@@ -31,22 +31,6 @@ if (APPLE)
         )
     endif()
 endif(APPLE)
-
-set (CPP_FILES ${CPP_FILES} input/platformGamePad.c)
-
-if (MSVC)
-    set (CPP_FILES ${CPP_FILES} input/platformGamePadWindows.c)
-elseif(ANDROID)
-	set (CPP_FILES ${CPP_FILES} input/platformGamePadOuya.cpp)
-elseif(APPLE)
-    if (LOOM_BUILD_IOS EQUAL 1)
-        set (CPP_FILES ${CPP_FILES} input/platformGamePadNull.c)
-    else()
-        set (CPP_FILES ${CPP_FILES} input/platformGamePadOSX.cpp)
-    endif()
-else()
-	set (CPP_FILES ${CPP_FILES} input/platformGamePadNull.c)
-endif()
 
 set (SOURCE_FILES ${CPP_FILES} ${H_FILES})
 

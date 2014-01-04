@@ -25,7 +25,7 @@
 #include "platform/CCCommon.h"
 #include "platform/CCFileUtils.h"
 #include "loom/common/xml/tinyxml2.h"
-#include "loom/common/config/applicationConfig.h"
+#include "loom/engine/config/applicationConfig.h"
 
 #include <stdlib.h>
 

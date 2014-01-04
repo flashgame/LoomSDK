@@ -35,15 +35,15 @@
 #include "loom/common/utils/utString.h"
 #include "loom/common/utils/fourcc.h"
 
-#include "loom/common/assets/assets.h"
-#include "loom/common/assets/assetProtocol.h"
-#include "loom/common/assets/assetsImage.h"
-#include "loom/common/assets/assetsSound.h"
-#include "loom/common/assets/assetsScript.h"
+#include "loom/engine/assets/assets.h"
+#include "loom/engine/assets/assetProtocol.h"
+#include "loom/engine/assets/assetsImage.h"
+#include "loom/engine/assets/assetsSound.h"
+#include "loom/engine/assets/assetsScript.h"
 
 #include <jansson.h>
 
-#include "loom/common/config/applicationConfig.h"
+#include "loom/engine/config/applicationConfig.h"
 
 #include "loom/script/native/lsNativeDelegate.h"
 

@@ -4,7 +4,7 @@
 // 
 
 #include "embeddedAssets.h"
-#include "loom/common/assets/assets.h"
+#include "loom/engine/assets/assets.h"
 
 void supplyEmbeddedAssets()
 {

@@ -32,6 +32,8 @@ void installLoomMobile();
 void installLoomGraphics();
 void installLoom2D();
 void installPackageLoomSound();
+void installSystemPlatformGamepad();
+
 
 void installPackageLoom()
 {
@@ -46,6 +48,7 @@ void installPackageLoom()
     installLoomVideo();
     installLoomMobile();
     installPackageLoomSound();
+    installSystemPlatformGamepad();
 
     // Should be its own package for maximum correctness.
     installPackageCocos2DX();

@@ -22,8 +22,8 @@
 #include <string.h>
 #include "loom/common/core/allocator.h"
 #include "loom/common/core/log.h"
-#include "loom/common/assets/assets.h"
-#include "loom/common/assets/assetsSound.h"
+#include "loom/engine/assets/assets.h"
+#include "loom/engine/assets/assetsSound.h"
 
 #include "stb_vorbis.h"
 #include "minimp3.h"

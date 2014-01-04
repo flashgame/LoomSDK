@@ -20,8 +20,8 @@
 
 #include "bgfx.h"
 
-#include "loom/common/assets/assets.h"
-#include "loom/common/assets/assetsImage.h"
+#include "loom/engine/assets/assets.h"
+#include "loom/engine/assets/assetsImage.h"
 #include "loom/common/core/assert.h"
 #include "loom/common/core/allocator.h"
 #include "loom/common/core/log.h"

@@ -21,7 +21,7 @@
 #ifndef _ASSETS_ASSETSSCRIPT_H_
 #define _ASSETS_ASSETSSCRIPT_H_
 
-#include "loom/common/assets/assets.h"
+#include "loom/engine/assets/assets.h"
 
 typedef struct loom_asset_script
 {

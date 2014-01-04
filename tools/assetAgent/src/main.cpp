@@ -33,7 +33,7 @@
 #include "loom/common/utils/utTypes.h"
 #include "loom/common/utils/utString.h"
 
-#include "loom/common/assets/assetProtocol.h"
+#include "loom/engine/assets/assetProtocol.h"
 
 // For realpath
 #if LOOM_PLATFORM_IS_APPLE == 1 || LOOM_PLATFORM == LOOM_PLATFORM_LINUX

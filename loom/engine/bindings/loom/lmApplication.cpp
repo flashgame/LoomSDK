@@ -31,7 +31,7 @@
 using namespace LS;
 
 #include "loom/common/core/log.h"
-#include "loom/common/assets/assetsScript.h"
+#include "loom/engine/assets/assetsScript.h"
 #include "loom/engine/tasks/tasks.h"
 #include "loom/common/platform/platformNetwork.h"
 #include "loom/common/platform/platformWebView.h"
@@ -43,7 +43,7 @@ using namespace LS;
 #include "loom/common/platform/platformHttp.h"
 #include "loom/common/platform/platformAdMob.h"
 
-#include "loom/common/config/applicationConfig.h"
+#include "loom/engine/config/applicationConfig.h"
 
 LOOM_DECLARE_TASK(Frame);
 

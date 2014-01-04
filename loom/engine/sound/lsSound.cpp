@@ -19,9 +19,9 @@
  */
 
 #include "loom/common/core/log.h"
-#include "loom/common/assets/assets.h"
-#include "loom/common/assets/assetsSound.h"
-#include "loom/common/config/applicationConfig.h"
+#include "loom/engine/assets/assets.h"
+#include "loom/engine/assets/assetsSound.h"
+#include "loom/engine/config/applicationConfig.h"
 #include "loom/script/loomscript.h"
 #include "loom/vendor/openal-soft/include/AL/al.h"
 #include "loom/vendor/openal-soft/include/AL/alc.h"

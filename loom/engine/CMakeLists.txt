@@ -1,8 +1,11 @@
 project(LoomCore)
 
-include_directories(
-    ${LOOM_INCLUDE_FOLDERS}
-)
+if(NOT LOOM_BUILD_IOS EQUAL 1)
+    set(CMAKE_OSX_ARCHITECTURES "i386;x86_64")
+endif()
+
+
+include_directories ( ${LOOM_INCLUDE_FOLDERS} )
 
 set (ENGINE_SRC
 
@@ -19,6 +22,7 @@ set (ENGINE_SRC
     loom2d/l2dQuadBatch.cpp
     loom2d/l2dScript.cpp
     
+    bindings/assets/lmAssets.cpp
     bindings/loom/lmApplication.cpp
     bindings/loom/lmApplicationTasks.cpp
     bindings/loom/lmWebView.cpp
@@ -29,6 +33,7 @@ set (ENGINE_SRC
     bindings/loom/lmMobile.cpp
     bindings/loom/lmPackageLoom.cpp
     bindings/loom/gameframework/lmPropertyManager.cpp
+    bindings/platform/lmGamepad.cpp
 
     bindings/cocos2d/lmCocos2D.cpp
     
@@ -150,25 +155,23 @@ if (APPLE)
 endif(APPLE)
 
 if(ANDROID)
-set (ENGINE_SRC
 
-    ${ENGINE_SRC}
-
-    cocos2dx/platform/android/CCAccelerometer.cpp
-    cocos2dx/platform/android/CCApplication.cpp
-    cocos2dx/platform/android/CCCommon.cpp
-    cocos2dx/platform/android/CCEGLView.cpp
-    cocos2dx/platform/android/CCFileUtils.cpp
-    cocos2dx/platform/android/CCImage.cpp
-    cocos2dx/platform/android/platformMain.cpp
-    cocos2dx/platform/android/jni/IMEJni.cpp
-    cocos2dx/platform/android/jni/JniHelper.cpp
-    cocos2dx/platform/android/jni/MessageJni.cpp
-    cocos2dx/platform/android/jni/SensorJni.cpp
-    cocos2dx/platform/android/jni/SystemInfoJni.cpp
-    cocos2dx/platform/android/jni/TouchesJni.cpp
-        
-)
+    set (ENGINE_SRC
+        ${ENGINE_SRC}
+        cocos2dx/platform/android/CCAccelerometer.cpp
+        cocos2dx/platform/android/CCApplication.cpp
+        cocos2dx/platform/android/CCCommon.cpp
+        cocos2dx/platform/android/CCEGLView.cpp
+        cocos2dx/platform/android/CCFileUtils.cpp
+        cocos2dx/platform/android/CCImage.cpp
+        cocos2dx/platform/android/platformMain.cpp
+        cocos2dx/platform/android/jni/IMEJni.cpp
+        cocos2dx/platform/android/jni/JniHelper.cpp
+        cocos2dx/platform/android/jni/MessageJni.cpp
+        cocos2dx/platform/android/jni/SensorJni.cpp
+        cocos2dx/platform/android/jni/SystemInfoJni.cpp
+        cocos2dx/platform/android/jni/TouchesJni.cpp
+    )
 endif(ANDROID)
 
 
@@ -214,10 +217,25 @@ set (ENGINE_SRC
 )
 endif()
 
+file (GLOB MISC_FILES config/*.cpp assets/*.c assets/*.cpp)
 
-include_directories(
-    vendor/zlib/include
-)
+set (ENGINE_SRC ${ENGINE_SRC} ${MISC_FILES} input/platformGamePad.c)
+
+if (MSVC)
+    set (ENGINE_SRC ${ENGINE_SRC} input/platformGamePadWindows.c)
+elseif(ANDROID)
+        set (ENGINE_SRC ${ENGINE_SRC} input/platformGamePadOuya.cpp)
+elseif(APPLE)
+    if (LOOM_BUILD_IOS EQUAL 1)
+        set (ENGINE_SRC ${ENGINE_SRC} input/platformGamePadNull.c)
+    else()
+        set (ENGINE_SRC ${ENGINE_SRC} input/platformGamePadOSX.cpp)
+    endif()
+else()
+        set (ENGINE_SRC ${ENGINE_SRC} input/platformGamePadNull.c)
+endif()
+
+include_directories(vendor/zlib/include)
 
 add_library(${PROJECT_NAME} 
     ${ENGINE_HDR} ${ENGINE_SRC} 

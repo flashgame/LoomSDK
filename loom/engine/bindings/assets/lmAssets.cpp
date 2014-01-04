@@ -18,7 +18,7 @@
  * ===========================================================================
  */
 
-#include "loom/common/assets/assets.h"
+#include "loom/engine/assets/assets.h"
 #include "loom/common/utils/utString.h"
 #include "loom/common/core/log.h"
 #include "loom/script/loomscript.h"

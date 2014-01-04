@@ -22,7 +22,7 @@
 #include "loom/common/core/assert.h"
 #include "loom/common/core/log.h"
 #include "loom/common/platform/platformIO.h"
-#include "loom/common/config/applicationConfig.h"
+#include "loom/engine/config/applicationConfig.h"
 
 lmDefineLogGroup(gLoomApplicationConfigLogGroup, "script.LoomApplicationConfig", 1, LoomLogInfo);
 

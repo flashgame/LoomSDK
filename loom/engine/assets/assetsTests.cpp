@@ -21,8 +21,8 @@
 
 #include "seatest.h"
 #include "loom/common/platform/platformTime.h"
-#include "loom/common/assets/assets.h"
-#include "loom/common/assets/assetsImage.h"
+#include "loom/engine/assets/assets.h"
+#include "loom/engine/assets/assetsImage.h"
 
 #include "jansson.h"
 

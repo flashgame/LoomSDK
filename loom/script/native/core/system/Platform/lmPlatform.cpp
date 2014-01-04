@@ -95,13 +95,9 @@ static int registerSystemPlatform(lua_State *L)
 
 
 void installSystemPlatformFile();
-void installSystemPlatformGamepad();
 
 void installSystemPlatform()
 {
     LOOM_DECLARE_NATIVETYPE(Platform, registerSystemPlatform);
     installSystemPlatformFile();
-#ifndef LOOMSCRIPT_STANDALONE    
-    installSystemPlatformGamepad();
-#endif    
 }
