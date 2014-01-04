@@ -27,10 +27,11 @@ limitations under the License.
 #import <UIKit/UIKit.h>
 
 #include "loom/common/platform/platform.h"
-#include "loom/common/platform/platformMobile.h"
 #include "loom/common/core/log.h"
 #include "loom/common/core/assert.h"
 #include "loom/vendor/jansson/jansson.h"
+
+#include "loom/engine/services/platformMobile.h"
 
 lmDefineLogGroup(gIOSMobileLogGroup, "loom.mobile.ios", 1, 0);
 

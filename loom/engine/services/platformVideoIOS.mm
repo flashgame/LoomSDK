@@ -24,10 +24,11 @@ limitations under the License.
 #import <Foundation/NSSet.h>
 
 #include "loom/common/platform/platform.h"
-#include "loom/common/platform/platformVideo.h"
 #include "loom/common/core/log.h"
 #include "loom/common/core/assert.h"
 #include "loom/vendor/jansson/jansson.h"
+
+#include "loom/engine/services/platformVideo.h"
 
 lmDefineLogGroup(gAppleVideoLogGroup, "loom.video.apple", 1, 0);
 

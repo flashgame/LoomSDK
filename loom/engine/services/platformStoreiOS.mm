@@ -23,11 +23,12 @@ limitations under the License.
 #import <StoreKit/StoreKit.h>
 
 #include "loom/common/platform/platform.h"
-#include "loom/common/platform/platformStore.h"
-#include "loom/common/platform/EBPurchase.h"
 #include "loom/common/core/log.h"
 #include "loom/common/core/assert.h"
 #include "loom/vendor/jansson/jansson.h"
+
+#include "loom/engine/services/platformStore.h"
+#include "loom/engine/services/EBPurchase.h"
 
 extern "C"
 {

@@ -18,9 +18,9 @@
  * ===========================================================================
  */
 
-#include "platformWebView.h"
+#include "loom/common/platform/platform.h"
 #include "loom/common/core/log.h"
-#include "platform.h"
+#include "platformWebView.h"
 
 #if LOOM_PLATFORM == LOOM_PLATFORM_WIN32 || LOOM_PLATFORM == LOOM_PLATFORM_LINUX
 
