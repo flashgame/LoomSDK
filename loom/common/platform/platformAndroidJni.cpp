@@ -32,7 +32,7 @@
 
 #if LOOM_PLATFORM == LOOM_PLATFORM_ANDROID
 
-#include "platformAndroidJni.h"
+#include "loom/common/platform/platformAndroidJni.h"
 
 static loom_logGroup_t jniLogGroup = { "jni", 1 };
 

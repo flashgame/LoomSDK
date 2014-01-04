@@ -24,7 +24,7 @@
 #include "SystemInfoJni.h"
 #include "JniHelper.h"
 #include "cocoa/CCString.h"
-#include "loom/common/platform/platformDisplay.h"
+#include "loom/engine/services/platformDisplay.h"
 
 #include <android/log.h>
 #include <jni.h>

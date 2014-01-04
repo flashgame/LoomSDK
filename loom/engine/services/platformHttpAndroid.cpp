@@ -27,7 +27,7 @@
 #if LOOM_PLATFORM == LOOM_PLATFORM_ANDROID
 
 #include <jni.h>
-#include "platformAndroidJni.h"
+#include "loom/common/platform/platformAndroidJni.h"
 
 lmDefineLogGroup(gAndroidHTTPLogGroup, "http.android", 1, LoomLogInfo);
 

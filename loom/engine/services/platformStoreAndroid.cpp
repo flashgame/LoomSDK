@@ -23,12 +23,13 @@
 #if LOOM_PLATFORM == LOOM_PLATFORM_ANDROID
 
 #include <jni.h>
-#include "platformAndroidJni.h"
+#include "loom/common/platform/platformAndroidJni.h"
 
 #include "loom/common/core/log.h"
 #include "loom/common/core/assert.h"
-#include "loom/common/platform/platformStore.h"
 #include "loom/vendor/jansson/jansson.h"
+
+ #include "loom/engine/services/platformStore.h"
 
 lmDefineLogGroup(gGoogleStoreLogGroup, "loom.store.googlePlay", 1, 0);
 

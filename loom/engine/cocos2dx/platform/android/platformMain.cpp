@@ -1,6 +1,7 @@
-#include "loom/common/platform/platformDisplay.h"
+
 #include "loom/common/platform/platformFile.h"
 #include "loom/engine/tasks/tasks.h"
+#include "loom/engine/services/platformDisplay.h"
 
 extern "C"
 {
